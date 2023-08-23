@@ -8,6 +8,12 @@ const config: StorybookConfig = {
     "@storybook/addon-onboarding",
     "@storybook/addon-interactions",
   ],
+  core: {
+    builder: "@storybook/builder-vite",
+  },
+  typescript: {
+    reactDocgen: "react-docgen",
+  },
   framework: {
     name: "@storybook/react-vite",
     options: {},
