@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Flux from "../components/Flux";
+import Flux from "../../components/Flux";
 
 const { Row, Col } = Flux;
 
