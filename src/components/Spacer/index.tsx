@@ -2,9 +2,9 @@ import React, { CSSProperties } from "react";
 
 interface SpacerProps {
   children: React.ReactNode;
-  type: "horizontal" | "vertical";
-  size: number;
-  style: CSSProperties;
+  type?: "horizontal" | "vertical";
+  size?: number;
+  style?: CSSProperties;
 }
 
 const Spacer = ({

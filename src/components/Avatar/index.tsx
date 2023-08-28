@@ -4,7 +4,12 @@ import PropTypes from "prop-types";
 import ImageComponent from "../Image";
 import AvatarGroup from "./AvatarGroup";
 
-type shapeType = "circle" | "round" | "fill";
+type shapeType = "circle" | "round" | "square";
+interface ShapeToCssValueType {
+  circle: string;
+  round: string;
+  square: string;
+}
 
 interface AvatarProps {
   lazy?: boolean;
@@ -17,7 +22,7 @@ interface AvatarProps {
   mode: "cover" | "fill" | "contain";
 }
 
-const ShapeToCssValue = {
+const ShapeToCssValue: ShapeToCssValueType = {
   circle: "50%",
   round: "4px",
   square: "0px",

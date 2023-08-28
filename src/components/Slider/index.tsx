@@ -1,12 +1,13 @@
 import styled from "@emotion/styled";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { CSSProperties, useCallback, useEffect, useRef, useState } from "react";
 
 interface SliderProps {
-  min: number;
-  max: number;
-  step: number;
-  defaultValue: number;
-  onChange: () => void;
+  min?: number;
+  max?: number;
+  step?: number;
+  defaultValue?: number;
+  style: CSSProperties;
+  onChange: (num: number) => void;
 }
 
 const SliderContainer = styled.div`
@@ -53,10 +54,11 @@ const Slider = ({
   max = 100,
   step = 0.1,
   defaultValue,
+  style,
   onChange,
   ...props
 }: SliderProps) => {
-  const sliderRef = useRef(null);
+  const sliderRef = useRef<HTMLDivElement>(null);
   const [dragging, setDragging] = useState(false);
   const [value, setValue] = useState(defaultValue ? defaultValue : min);
 
@@ -71,7 +73,7 @@ const Slider = ({
   useEffect(() => {
     const HandleMouseMove = (e: MouseEvent) => {
       if (!dragging) return;
-
+      if (!sliderRef.current) return;
       const handleOffset = e.pageX - sliderRef.current.offsetLeft;
       const sliderWidth = sliderRef.current.offsetWidth;
 
@@ -101,7 +103,7 @@ const Slider = ({
   const percentage = ((value - min) / (max - min)) * 100;
 
   return (
-    <SliderContainer ref={sliderRef} {...props}>
+    <SliderContainer ref={sliderRef} style={style} {...props}>
       <Rail />
       <Track style={{ width: `${percentage}%` }} />
       <Handle

@@ -37,7 +37,10 @@ export const Volumn: Story = {
   render: () => (
     <Spacer>
       <Icon name="volume" />
-      <Slider style={{ width: 100, display: "inline-block" }} />
+      <Slider
+        style={{ width: 100, display: "inline-block" }}
+        onChange={() => null}
+      />
       <Icon name="volume-2" />
     </Spacer>
   ),
