@@ -1,6 +1,6 @@
 import Box from "./Box";
 
-interface ParagraphProps {
+export interface ParagraphProps {
   line: number;
 }
 
